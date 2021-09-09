@@ -1,0 +1,117 @@
+
+body {
+    font-family: "Roboto", "Open Sans", sans-serif;
+}
+.navbar { 
+    background-color: #1e202b;
+}
+
+#home {
+    background-image: url(../images/pexels-pixabay-268791.jpg);
+    background-size: cover;
+    background-position: center;
+    /* height: 100vh; */
+}
+
+
+#otherRelatdeInfo img {
+    width: 21px;
+    height: 21px;
+    margin-right: 8px;
+}
+
+#otherRelatdeInfo span {
+    font-size: 14px;
+}
+
+.row {
+    color: #bdbcbc !important;
+    padding-bottom: 80px;
+}
+
+#currentTemp, #TomorrowHigherTemp, #afterTomorrowHigherTemp {
+    color: #fff;
+}
+
+#currentTemp {
+    font-size: 75px;
+}
+
+#currentIcon {
+    width: 25%;
+}
+
+#todayWeather, #afterTomorrowWeather {
+    background-color: #323544;
+}
+#todayWeather {
+    border-radius: 10px 0 0 10px;
+}
+#todayWeather .dateInfo {
+    border-radius: 10px 0 0;
+}
+
+#afterTomorrowWeather .dateInfo {
+    border-radius: 0 10px 0 0;
+}
+
+#afterTomorrowWeather {
+    border-radius: 0 10px 10px 0;
+}
+
+#TomorrowWeather {
+    background-color: #262936;
+}
+
+#TomorrowWeather .dateInfo {
+    background-color: #222530;
+    font-size: 15px;
+}
+
+#todayWeather .dateInfo, #afterTomorrowWeather .dateInfo  {
+    background-color: #2d303d;
+    font-size: 15px;
+}
+
+#currentWeatherStatus, #TomorrowWeatherStatus, #afterTomorrowWeatherStatus {
+    font-size: 15px;
+    color: #009ad8 !important;
+}
+
+#findBtn, #subscribeBtn {
+    background-color: #009ad8;
+    color: #fff !important;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    z-index: 1000;
+}
+
+#footer {
+     background-color: #1e202b;
+     position: relative;
+}
+
+.navbar .btn.active {
+    border: solid 2px #009ad8;
+}
+
+#contactList {
+    list-style: none;
+}
+
+
+#contactList li {
+    padding-right: 15px;
+    font-size: 30px;
+}
+
+.subscribe_Contacts .input-group {
+    width: 70% !important;
+}
+
+#credits p {
+    font-size: 14px;
+    color: #bdbcbc !important;
+}

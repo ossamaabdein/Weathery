@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/all.min.css">      
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    </head>
+    <body>
+        
+        <section id="home">
+            <nav class="navbar navbar-expand-sm navbar-light    py-3 mb-5">
+                <div class="container">
+                    <a class="navbar-brand text-light" href="#"><i class="fas fa-cloud-sun-rain fs-1"></i></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+                        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarID">
+                        <div class="navbar-nav ms-auto">
+                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link active" aria-current="page" href="#home">Home</a>
+                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="#">News</a>
+                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="#">Live Cameras</a>
+                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="#">Photos</a>
+                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="#footer">Contact</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="home-content">
+                <div class="container">
+                    <div class="input-group mb-3 w-75 m-auto">
+                        <input type="text" id="searchInput" class="form-control rounded-pill py-3" placeholder="Find your Location.." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn rounded-pill px-5" type="button" id="findBtn">Find</button>
+                    </div>
+                    <div class="row text-light mt-5">
+                        <!-- Today Weather Data -->
+                        <div id="todayWeather" class="col-md-4 px-0">
+                            <div class="dateInfo d-flex justify-content-between align-items-center p-2">
+                                <span id="today" class=""></span>
+                                <span id="todayDate"></span>
+                            </div>
+                            <div class="px-3 py-4" id="TodayWeatherInfo">
+                                <h6 id="currentLocation" class="fs-4 fw-normal"></h6>
+                                <div class="d-flex align-items-center py-4" id="currentTempInfo">
+                                    <h2 class="pe-5" id="currentTemp"></h2>
+                                    <img id="CurrentIcon" src="">
+                                </div>
+                                <span id="currentWeatherStatus" class="text-primary"></span>
+                                <div class="d-flex justify-content-between align-items-center pt-3" id="otherRelatdeInfo">
+                                    <div id="rainInfo" class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Chance of Rain">
+                                        <img id="rainIcon" src="./images/icon-umberella.png">
+                                        <span id="rainChance"></span>
+                                    </div>
+                                    <div id="windInfo" class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Wind Speed">
+                                        <img id="windIcon" src="./images/icon-wind.png">
+                                        <span id="windSpeed"></span>
+                                    </div>
+                                    <div id="AnotherWindInfo" class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Wind Direction">
+                                        <img id="CompassIcon" src="./images/icon-compass.png">
+                                        <span id="windDirection"></span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="TomorrowWeather" class="col-md-4 px-0 text-center">
+                            <div id="Tomorrow-info" class="dateInfo p-2">
+                                <span id="Tomorrow"></span>
+                            </div>
+                            <div class="px-2" id="TomorrowWeatherInfo">
+                                <img class="pt-4 pb-2" id="TomorrowWeatherIcon">
+                                <div class="py-2" id="TomorrowTempInfo">
+                                    <h5 id="TomorrowHigherTemp"></h5>
+                                    <h6 id="TomorrowLowerTemp"></h6>  
+                                </div>
+                                <span id="TomorrowWeatherStatus" class="text-primary pb-3"></span>
+                            </div>
+                        </div>
+
+                        <div id="afterTomorrowWeather" class="col-md-4 px-0 text-center">
+                            <div id="afterTomorrow-info" class="dateInfo p-2">
+                                <span id="afterTomorrow"></span>
+                            </div>
+                            <div class="px-2" id="afterTomorrowWeatherInfo">
+                                <img class="pt-4 pb-2" id="afterTomorrowWeatherIcon">                                
+                                <div class="py-2" id="afterTomorrowTempInfo">
+                                    <h5 id="afterTomorrowHigherTemp"></h5>
+                                    <h6 id="afterTomorrowLowerTemp"></h6>  
+                                </div>
+                                <span id="afterTomorrowWeatherStatus" class="text-primary pb-3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer" class="pb-1">
+            <div class="container">
+                <div class="subscribe_Contacts d-flex align-items-center py-5">
+                    <div class="input-group mb-3 me-5">
+                        <input type="text" id="mailInput" class="form-control rounded-pill py-3" placeholder="Enter your email to subscribe.." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn rounded-pill px-4" type="button" id="subscribeBtn">Subscribe</button>
+                    </div>
+                    <div id="contacts" class="ms-3">
+                        <ul id="contactList" class="d-flex">
+                            <li><a href="https://www.facebook.com/ossama.abdein"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/ossama-abdein/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.github.com/ossamaabdein"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="credits">
+                    <p class="text-light">Designed by Themezy. Developed by Ossama_Abdein. All rights reserved@2021</p>
+                </div>
+            </div>
+        </section>
+
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://kit.fontawesome.com/ea8f945607.js" crossorigin="anonymous"></script>  
+    </body>
+</html>
