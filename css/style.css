@@ -6,6 +6,14 @@ body {
     background-color: #1e202b;
 }
 
+.navbar a {
+    font-size: 14px;
+}
+
+.navbar-brand {
+    font-size: 32px !important;
+}
+
 #home {
     background-image: url(../images/pexels-pixabay-268791.jpg);
     background-size: cover;
@@ -45,7 +53,7 @@ body {
     background-color: #323544;
 }
 #todayWeather {
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 0;
 }
 #todayWeather .dateInfo {
     border-radius: 10px 0 0;
@@ -56,7 +64,7 @@ body {
 }
 
 #afterTomorrowWeather {
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 0 0;
 }
 
 #TomorrowWeather {
@@ -64,6 +72,11 @@ body {
 }
 
 #TomorrowWeather .dateInfo {
+    background-color: #222530;
+    font-size: 15px;
+}
+
+#FourthDay .dateInfo {
     background-color: #222530;
     font-size: 15px;
 }
@@ -104,7 +117,7 @@ body {
 
 #contactList li {
     padding-right: 15px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .subscribe_Contacts .input-group {
@@ -114,4 +127,19 @@ body {
 #credits p {
     font-size: 14px;
     color: #bdbcbc !important;
+}
+
+.accordion-item, .accordion-body, .accordion-header, .accordion-collapse {
+    border-radius: 0 0 10px 10px !important;
+}
+.accordion-item {
+    background-color: #323544;
+}
+
+.accordion-body  .titles {
+    font-size: 14px;  
+}
+
+.accordion-body  .values {
+    color: #fff;
 }
