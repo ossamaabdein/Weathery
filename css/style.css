@@ -67,19 +67,20 @@ body {
     border-radius: 0 10px 0 0;
 }
 
-#TomorrowWeather {
+#TomorrowWeather, #FifthDayWeather {
     background-color: #262936;
 }
 
-#TomorrowWeather .dateInfo {
+#TomorrowWeather .dateInfo, #FifthDayWeather .dateInfo {
     background-color: #222530;
     font-size: 15px;
 }
 
-#FourthDay .dateInfo {
-    background-color: #222530;
+#FourthDayWeather .dateInfo, #SixthDayWeather .dateInfo {
+    background-color: #2d303d;
     font-size: 15px;
 }
+
 
 #todayWeather .dateInfo, #afterTomorrowWeather .dateInfo  {
     background-color: #2d303d;

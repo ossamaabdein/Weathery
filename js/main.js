@@ -39,8 +39,18 @@ let FourthDayWeatherIcon = document.getElementById("FourthDayWeatherIcon");
 let FourthDayHigherTemp = document.getElementById("FourthDayHigherTemp");
 let FourthDayLowerTemp = document.getElementById("FourthDayLowerTemp");
 let FourthDayWeatherStatus = document.getElementById("FourthDayWeatherStatus");
-
-
+// Fifth
+let FifthDay = document.getElementById("FifthDay");
+let FifthDayWeatherIcon = document.getElementById("FifthDayWeatherIcon");
+let FifthDayHigherTemp = document.getElementById("FifthDayHigherTemp");
+let FifthDayLowerTemp = document.getElementById("FifthDayLowerTemp");
+let FifthDayWeatherStatus = document.getElementById("FifthDayWeatherStatus");
+// Sixth
+let SixthDay = document.getElementById("SixthDay");
+let SixthDayWeatherIcon = document.getElementById("SixthDayWeatherIcon");
+let SixthDayHigherTemp = document.getElementById("SixthDayHigherTemp");
+let SixthDayLowerTemp = document.getElementById("SixthDayLowerTemp");
+let SixthDayWeatherStatus = document.getElementById("SixthDayWeatherStatus");
 
 
 
@@ -48,7 +58,7 @@ let FourthDayWeatherStatus = document.getElementById("FourthDayWeatherStatus");
 let cityName = "auto:ip";
 
 let weatherData;
-let extraDays;
+let fourthData, fifthData, sixthData;
 
 // initial values for weather on page load
 window.onload = allOfThem();
@@ -69,19 +79,27 @@ let TodayName = days[d.getDay()];
 let TomorrowName;
 let afterTomorrowName;
 let FourthDayName;
+let FifthDayName;
+let SixthDayName;
 
 if (d.getDay() == days.length-2) {
     TomorrowName = days[days.length-1]
     afterTomorrowName = days[0];
-    FourthDayName = days[1]
+    FourthDayName = days[1];
+    FifthDayName = days[2];
+    SixthDayName = days[3];
 } else if (d.getDay() == days.length-1) {
     TomorrowName = days[0]
     afterTomorrowName = days[1];
-    FourthDayName = days[2]
+    FourthDayName = days[2];
+    FifthDayName = days[3];
+    SixthDayName = days[4];
 } else {
     TomorrowName = days[d.getDay()+1];
     afterTomorrowName = days[d.getDay()+2];
-    FourthDayName = days[d.getDay()+3]
+    FourthDayName = days[d.getDay()+3];
+    FifthDayName = days[d.getDay()+4];
+    SixthDayName = days[d.getDay()+4];
 }
 
 
@@ -101,10 +119,14 @@ let sixth = d.toISOString().split('T')[0];
 
 
 async function getData(cityName) {
-    let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&days=3&dt=${fourth}`);
-    let secondResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&days=3&dt=${fourth}`)
+    let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&days=3`);
+    let fourthResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fourth}`);
+    let fifthResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fifth}`)
+    let sixthResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${sixth}`)
     weatherData = await response.json();
-    extraDays = await secondResponse.json();
+    fourthData = await fourthResponse.json();
+    fifthData = await fifthResponse.json();
+    sixthData = await sixthResponse.json();
 }
 
 // Real-time search
@@ -119,7 +141,7 @@ async function allOfThem() {
     displayData();
     displayTomorrowData();
     displayafterTomorrowData();
-    // displayMoreDaydData();
+    displayMoreDaysData();
 }
 
 function displayData() {
@@ -185,13 +207,26 @@ function displayafterTomorrowData() {
     afterTomorrowWeatherStatus.innerHTML = weatherData.forecast.forecastday[2].day.condition.text;
 }
 
-// function displayMoreDaydData() {
-//     // FourthDay.innerHTML = FourthDayName;
-//     FourthDayWeatherIcon.src = extraDays.forecast.forecastday[0].day.condition.icon;
-//     FourthDayHigherTemp.innerHTML = `${extraDays.forecast.forecastday[0].day.maxtemp_c}°C`;
-//     FourthDayLowerTemp.innerHTML = `${extraDays.forecast.forecastday[0].day.mintemp_c}°`;
-//     FourthDayWeatherStatus.innerHTML = extraDays.forecast.forecastday[0].day.condition.text;
-// }
+function displayMoreDaysData() {
+    //  Fourth
+    FourthDay.innerHTML = FourthDayName;
+    FourthDayWeatherIcon.src = fourthData.forecast.forecastday[0].day.condition.icon;
+    FourthDayHigherTemp.innerHTML = `${fourthData.forecast.forecastday[0].day.maxtemp_c}°C`;
+    FourthDayLowerTemp.innerHTML = `${fourthData.forecast.forecastday[0].day.mintemp_c}°`;
+    FourthDayWeatherStatus.innerHTML = fourthData.forecast.forecastday[0].day.condition.text;
+    // Fifth
+    FifthDay.innerHTML = FifthDayName;
+    FifthDayWeatherIcon.src = fifthData.forecast.forecastday[0].day.condition.icon;
+    FifthDayHigherTemp.innerHTML = `${fifthData.forecast.forecastday[0].day.maxtemp_c}°C`;
+    FifthDayLowerTemp.innerHTML = `${fifthData.forecast.forecastday[0].day.mintemp_c}°`;
+    FifthDayWeatherStatus.innerHTML = fifthData.forecast.forecastday[0].day.condition.text;
+    // Sixth
+    SixthDay.innerHTML = SixthDayName;
+    SixthDayWeatherIcon.src = sixthData.forecast.forecastday[0].day.condition.icon;
+    SixthDayHigherTemp.innerHTML = `${sixthData.forecast.forecastday[0].day.maxtemp_c}°C`;
+    SixthDayLowerTemp.innerHTML = `${sixthData.forecast.forecastday[0].day.mintemp_c}°`;
+    SixthDayWeatherStatus.innerHTML = sixthData.forecast.forecastday[0].day.condition.text;
+}
 
 
 // Saving subscription mail into local storage
