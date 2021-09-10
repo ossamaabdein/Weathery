@@ -2,12 +2,19 @@
 body {
     font-family: "Roboto", "Open Sans", sans-serif;
 }
+
+/* Navbar Styling */
 .navbar { 
     background-color: #1e202b;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 9999;
+}
+
+.navbar .btn.active {
+    border: solid 1px #009ad8;
+    border-radius: 20px;
 }
 
 .navbar a {
@@ -18,19 +25,18 @@ body {
     font-size: 32px !important;
 }
 
+/* Home Section Styling */
 #home {
     background-image: url(../images/pexels-pixabay-268791.jpg);
     background-size: cover;
     background-position: top;
     background-attachment:fixed;
-    position: relative;
 }
 
 #home-content {
     position: relative;
     top: 40px;
 }
-
 
 #otherRelatdeInfo img {
     width: 21px;
@@ -45,7 +51,6 @@ body {
 .row {
     color: #bdbcbc !important;
     padding-bottom: 80px;
-    /* opacity: 0.95; */
 }
 
 #currentTemp, #TomorrowHigherTemp, #afterTomorrowHigherTemp {
@@ -113,37 +118,12 @@ body {
     z-index: 1000;
 }
 
-#footer {
-     background-color: #1e202b;
-     /* position: relative; */
-}
 
-.navbar .btn.active {
-    border: solid 2px #009ad8;
-}
-
-#contactList {
-    list-style: none;
-}
-
-
-#contactList li {
-    padding-right: 15px;
-    font-size: 25px;
-}
-
-.subscribe_Contacts .input-group {
-    width: 70% !important;
-}
-
-#credits p {
-    font-size: 14px;
-    color: #bdbcbc !important;
-}
-
+/* Accordion Styling */
 .accordion-item, .accordion-body, .accordion-header, .accordion-collapse {
     border-radius: 0 0 10px 10px !important;
 }
+
 .accordion-item {
     background-color: #323544;
 }
@@ -161,7 +141,44 @@ body {
     color: #000;
 }
 
+.extraStatus {
+    font-size: 15px;
+}
 
+/* Footer Section Styling */
+#footer {
+     background-color: #1e202b;
+}
+
+#contactList {
+    list-style: none;
+}
+
+#contactList li {
+    padding-right: 15px;
+    font-size: 25px;
+}
+
+#contactList li a{
+    transition: all 0.25s ease-in-out;
+}
+
+#contactList li a:hover {
+    color: #d1d0d0;
+}
+
+.subscribe_Contacts .input-group {
+    width: 70% !important;
+}
+
+#credits p {
+    font-size: 14px;
+    color: #bdbcbc !important;
+}
+
+
+
+/* Responsive Design for smaller screen PCs */
 @media screen and (max-width: 1000px) {
     #currentTemp {
         font-size: 55px;
@@ -171,6 +188,7 @@ body {
     }
 }
 
+/* Responsive Design for tablet size screen */
 @media screen and (max-width: 765px) {
     #home-content .input-group {
         width: 80% !important;
@@ -219,7 +237,15 @@ body {
     }
 }
 
+/* Responsive Design for smaller Tablet and mobile screen  */
 @media screen and (max-width: 576px) {
+    .navbar .btn {
+       border: none !important;
+       /* border-bottom: solid 0.5px #7e7c7c !important; */
+    }
+    .navbar .btn.active {
+        color: #009ad8 !important;
+    }
     #TodayWeatherInfo {
         text-align: center;
     }
