@@ -22,7 +22,7 @@
                             <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link active" aria-current="page" href="#home">Home</a>
                             <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="https://weather.com/?Goto=Redirected" target="_blank">News</a>
                             <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="https://www.weatherapi.com/" target="_blank">API</a>
-                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="#">Photos</a>
+                            <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" id="travelLink" target="_blank">Visit this City</a>
                             <a class="btn bg-transparent text-light rounded-pill me-2 py-1 px-3 nav-link" aria-current="page" href="#footer">Contact</a>
                             
                         </div>
@@ -30,13 +30,13 @@
                 </div>
             </nav>
 
-            <div id="home-content">
+            <div id="home-content" class="pt-5">
                 <div class="container">
                     <div class="input-group mb-2 w-75 m-auto">
                         <input type="text" id="searchInput" class="form-control rounded-pill py-3" placeholder="Find your Location.." aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn rounded-pill px-5" type="button" id="findBtn">Find</button>
                     </div>
-                    <div class="row text-light mt-4">
+                    <div class="row weatherTable text-light mt-4">
                         <!-- Today Weather Data -->
                         <div id="todayWeather" class="col-md-4 px-0">
                             <div class="dateInfo d-flex justify-content-between align-items-center p-2">
@@ -45,9 +45,9 @@
                             </div>
                             <div class="px-3 py-4" id="TodayWeatherInfo">
                                 <h6 id="currentLocation" class="fs-4 fw-normal"></h6>
-                                <div class="d-flex align-items-center py-4" id="currentTempInfo">
-                                    <h2 class="pe-5" id="currentTemp"></h2>
-                                    <img id="CurrentIcon" src="">
+                                <div class="row d-flex align-items-center py-4" id="currentTempInfo">
+                                    <h2 class="col-sm-8 col-12 pe-5" id="currentTemp"></h2>
+                                    <img class="col-sm-4 col-12" id="CurrentIcon" src="">
                                 </div>
                                 <span id="currentWeatherStatus" class="text-primary"></span>
                                 <div class="d-flex justify-content-between align-items-center pt-3" id="otherRelatdeInfo">
@@ -108,27 +108,27 @@
                               <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
                                 <div class="accordion-body pb-0">
                                     <div class="row pb-3">
-                                        <div class="d-flex flex-column col-2" id="feelsLike">
+                                        <div class="d-flex flex-column col-md-2 col-sm-4 col-6" id="feelsLike">
                                             <span class="titles">Feels Like</span>
                                             <span class="values" id="feelsLikeValue"></span>
                                         </div>
-                                        <div class="d-flex flex-column col-2" id="sunRise">
+                                        <div class="d-flex flex-column col-md-2 col-sm-4 col-6" id="sunRise">
                                             <span class="titles">Sunrise</span>
                                             <span class="values" id="sunriseValue"></span>
                                         </div>
-                                        <div class="d-flex flex-column col-2" id="sunSet">
+                                        <div class="d-flex flex-column col-md-2 col-sm-4 col-6" id="sunSet">
                                             <span class="titles">Sunset</span>
                                             <span class="values" id="sunsetValue"></span>
                                         </div>
-                                        <div class="d-flex flex-column col-2" id="humidity">
-                                            <span class="titles">Humidity</span>
-                                            <span class="values" id="humidityValue"></span>
-                                        </div>
-                                        <div class="d-flex flex-column col-2" id="localTime">
+                                        <div class="d-flex flex-column col-md-2 col-sm-4 col-6" id="localTime">
                                             <span class="titles">local Time</span>
                                             <span class="values" id="localTimeValue"></span>
                                         </div>
-                                        <div class="d-flex flex-column col-2" id="pressure">
+                                        <div class="d-flex flex-column col-md-2 col-sm-4 col-6" id="humidity">
+                                            <span class="titles">Humidity</span>
+                                            <span class="values" id="humidityValue"></span>
+                                        </div>
+                                        <div class="d-flex flex-column col-md-2 col-sm-4 col-6" id="pressure">
                                             <span class="titles">Pressure</span>
                                             <span class="values" id="pressureValue"></span>
                                         </div>
@@ -144,7 +144,7 @@
                                     #More Days Forecast
                                   </button>
                                 </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
                                     <div class="accordion-body p-0">
                                         <div class="row pb-0">
                                             <!-- Fourth Day -->
@@ -209,9 +209,9 @@
                     </div>
                     <div id="contacts" class="ms-3">
                         <ul id="contactList" class="d-flex">
-                            <li><a href="https://www.facebook.com/ossama.abdein"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/ossama-abdein/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="https://www.github.com/ossamaabdein"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/ossama.abdein" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/ossama-abdein/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.github.com/ossamaabdein" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>

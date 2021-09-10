@@ -4,6 +4,10 @@ body {
 }
 .navbar { 
     background-color: #1e202b;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
 }
 
 .navbar a {
@@ -17,8 +21,14 @@ body {
 #home {
     background-image: url(../images/pexels-pixabay-268791.jpg);
     background-size: cover;
-    background-position: center;
-    /* height: 100vh; */
+    background-position: top;
+    background-attachment:fixed;
+    position: relative;
+}
+
+#home-content {
+    position: relative;
+    top: 40px;
 }
 
 
@@ -35,6 +45,7 @@ body {
 .row {
     color: #bdbcbc !important;
     padding-bottom: 80px;
+    /* opacity: 0.95; */
 }
 
 #currentTemp, #TomorrowHigherTemp, #afterTomorrowHigherTemp {
@@ -104,7 +115,7 @@ body {
 
 #footer {
      background-color: #1e202b;
-     position: relative;
+     /* position: relative; */
 }
 
 .navbar .btn.active {
@@ -143,4 +154,83 @@ body {
 
 .accordion-body  .values {
     color: #fff;
+}
+
+.accordion-button {
+    background-color: #faf9f9;
+    color: #000;
+}
+
+
+@media screen and (max-width: 1000px) {
+    #currentTemp {
+        font-size: 55px;
+    }
+    #currentIcon {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    #home-content .input-group {
+        width: 80% !important;
+    }
+    #currentTemp {
+        font-size: 55px;
+    }
+    #currentIcon {
+        width: 15%;
+    }
+
+    #TomorrowWeather, #afterTomorrowWeather {
+        padding-bottom: 15px;
+    }
+
+    #todayWeather {
+        border-radius: 10px 10px 0 0;
+    }
+
+    #todayWeather .dateInfo {
+        border-radius: 10px 10px 0 0;
+    }
+
+    #afterTomorrowWeather .dateInfo {
+        border-radius: 0;
+    }
+    #collapseOne .d-flex {
+        padding-bottom: 10px;
+    }
+
+    .subscribe_Contacts {
+        flex-direction: column;
+    }
+
+    .subscribe_Contacts .input-group {
+        width: 90% !important;
+        margin-right: 0 !important;
+    }
+
+    #contacts {
+        margin-left: 0 !important;
+    }
+
+    #contactList {
+        padding-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #TodayWeatherInfo {
+        text-align: center;
+    }
+    #currentTempInfo {
+        text-align: center;
+    }
+    #currentTemp {
+        padding-right: 0 !important;
+    }
+    #currentIcon {
+        width: 20%;
+        margin: auto;
+    }
 }

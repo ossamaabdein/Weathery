@@ -30,7 +30,7 @@ let humidityValue = document.getElementById("humidityValue");
 let localTimeValue = document.getElementById("localTimeValue");
 let pressureValue = document.getElementById("pressureValue");
 let visibilityValue = document.getElementById("visibilityValue");
-
+let travelLink = document.getElementById("travelLink");
 
 
 // More Days
@@ -56,6 +56,7 @@ let SixthDayWeatherStatus = document.getElementById("SixthDayWeatherStatus");
 
 // default value with "ip" to detect current location
 let cityName = "auto:ip";
+let countryName;
 
 let weatherData;
 let fourthData, fifthData, sixthData;
@@ -75,6 +76,7 @@ console.log(cityName);
 let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let d = new Date();
 let TodayName = days[d.getDay()];
+let dateOfToday = d.toISOString().split('T')[0];
 
 let TomorrowName;
 let afterTomorrowName;
@@ -146,13 +148,14 @@ async function allOfThem() {
 
 function displayData() {
     today.innerHTML = TodayName;
-    todayDate.innerHTML = d.toISOString().split('T')[0];
+    todayDate.innerHTML = dateOfToday;
     currentLocation.innerHTML = weatherData.location.name;
     currentTemp.innerHTML = `${weatherData.current.temp_c}°C`;
     CurrentIcon.src  = weatherData.current.condition.icon;
     currentWeatherStatus.innerHTML = weatherData.current.condition.text;
     rainChance.innerHTML = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%`;
     windSpeed.innerHTML = `${weatherData.current.wind_kph}km/h`;
+    travelLink.href = `https://www.tripadvisor.com/Search?q=${currentLocation.innerHTML}`;
     switch (weatherData.current.wind_dir) {
     case "E":
         windDirection.innerHTML = "East";
@@ -188,7 +191,7 @@ function displayData() {
     humidityValue.innerHTML = `${weatherData.current.humidity}%`;
     localTimeValue.innerHTML = weatherData.location.localtime.slice(10);
     pressureValue.innerHTML = `${weatherData.current.pressure_mb} mb`;
-    // visibilityValue.innerHTML = `${weatherData.current.vis_km} km`;
+    countryName = weatherData.location.country;
 }
 
 function displayTomorrowData() {
