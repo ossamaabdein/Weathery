@@ -1,4 +1,6 @@
-//  Declaring letiables for manipulation
+"use strict";
+
+//  Declaring variables for manipulation
 
 let searchInput = document.getElementById("searchInput");
 let findBtn = document.getElementById("findBtn");
@@ -31,9 +33,11 @@ let localTimeValue = document.getElementById("localTimeValue");
 let pressureValue = document.getElementById("pressureValue");
 let visibilityValue = document.getElementById("visibilityValue");
 let travelLink = document.getElementById("travelLink");
+let subscribeBtn = document.getElementById("subscribeBtn");
 
 
-// More Days
+// Extra Days Data
+// Fourth
 let FourthDay = document.getElementById("FourthDay");
 let FourthDayWeatherIcon = document.getElementById("FourthDayWeatherIcon");
 let FourthDayHigherTemp = document.getElementById("FourthDayHigherTemp");
@@ -53,13 +57,11 @@ let SixthDayLowerTemp = document.getElementById("SixthDayLowerTemp");
 let SixthDayWeatherStatus = document.getElementById("SixthDayWeatherStatus");
 
 
+let weatherData;
+let fourthData, fifthData, sixthData;
 
 // default value with "ip" to detect current location
 let cityName = "auto:ip";
-let countryName;
-
-let weatherData;
-let fourthData, fifthData, sixthData;
 
 // initial values for weather on page load
 window.onload = allOfThem();
@@ -69,21 +71,23 @@ searchInput.addEventListener("keyup", function(){
     allOfThem();
 })
 
-console.log(cityName);
 
-
-// Get today`s date
+// Get today's name
 let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let d = new Date();
+// "getDay()" is a built-in function to extract "index" of the day from "Date()"
+// "getDay()" .. [sun-sat] >> [0-6]
 let TodayName = days[d.getDay()];
-let dateOfToday = d.toISOString().split('T')[0];
 
+
+// Get other days name
 let TomorrowName;
 let afterTomorrowName;
 let FourthDayName;
 let FifthDayName;
 let SixthDayName;
 
+// conditions to avoid "out of range" error & days[-1]
 if (d.getDay() == days.length-2) {
     TomorrowName = days[days.length-1]
     afterTomorrowName = days[0];
@@ -101,34 +105,37 @@ if (d.getDay() == days.length-2) {
     afterTomorrowName = days[d.getDay()+2];
     FourthDayName = days[d.getDay()+3];
     FifthDayName = days[d.getDay()+4];
-    SixthDayName = days[d.getDay()+4];
+    SixthDayName = days[d.getDay()+5];
 }
 
 
 // Fourth day date
 d.setDate(d.getDate() + 3);
-var fourth = d.toISOString().split('T')[0];
+// Using "toISOString()" set time zone back to GMT+00 not our GMT+2, so we need to offset this change to get accurate results at "1:00 AM" for example and not to be still at the previous day. 
+// I have no idea WTF is this, but it works.
+const offset = d.getTimezoneOffset()
+d = new Date(d.getTime() - (offset*60*1000))
+let fourth = d.toISOString().split('T')[0];
+
 // Fifth day date
 d.setDate(d.getDate() + 1);
 let fifth = d.toISOString().split('T')[0];
+
 // Sixth day date
 d.setDate(d.getDate() + 1);
 let sixth = d.toISOString().split('T')[0];
 
 
 
-
-
-
 async function getData(cityName) {
     let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&days=3`);
-    let fourthResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fourth}`);
-    let fifthResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fifth}`)
-    let sixthResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${sixth}`)
+    let fourthDayResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fourth}`);
+    let fifthDayResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fifth}`)
+    let sixthDayResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${sixth}`)
     weatherData = await response.json();
-    fourthData = await fourthResponse.json();
-    fifthData = await fifthResponse.json();
-    sixthData = await sixthResponse.json();
+    fourthData = await fourthDayResponse.json();
+    fifthData = await fifthDayResponse.json();
+    sixthData = await sixthDayResponse.json();
 }
 
 // Real-time search
@@ -148,7 +155,7 @@ async function allOfThem() {
 
 function displayData() {
     today.innerHTML = TodayName;
-    todayDate.innerHTML = dateOfToday;
+    todayDate.innerHTML = weatherData.location.localtime.slice(0,10);
     currentLocation.innerHTML = weatherData.location.name;
     currentTemp.innerHTML = `${weatherData.current.temp_c}°C`;
     CurrentIcon.src  = weatherData.current.condition.icon;
@@ -184,6 +191,7 @@ function displayData() {
     default:
         windDirection.innerHTML = weatherData.current.wind_dir;
     }
+    
     // More Details
     feelsLikeValue.innerHTML = `${weatherData.current.feelslike_c}°C`
     sunriseValue.innerHTML = weatherData.forecast.forecastday[0].astro.sunrise;
@@ -191,7 +199,6 @@ function displayData() {
     humidityValue.innerHTML = `${weatherData.current.humidity}%`;
     localTimeValue.innerHTML = weatherData.location.localtime.slice(10);
     pressureValue.innerHTML = `${weatherData.current.pressure_mb} mb`;
-    countryName = weatherData.location.country;
 }
 
 function displayTomorrowData() {
@@ -233,18 +240,22 @@ function displayMoreDaysData() {
 
 
 // Saving subscription mail into local storage
-
-let mailInput = document.getElementById("mailInput");
-let subscribeBtn = document.getElementById("subscribeBtn");
-let subscribers = [];
-if (localStorage.getItem("subscribersList") != null) {
-    subscribers = JSON.parse(localStorage.getItem("subscribersList"));
+function subscribe() {
+    let mailInput = document.getElementById("mailInput");
+    let subscribers = [];
+    if (localStorage.getItem("subscribersList") != null) {
+        subscribers = JSON.parse(localStorage.getItem("subscribersList"));
+    }
+    if (mailInput.value != "") {
+        subscribers.push(mailInput.value);
+    }
+    localStorage.setItem("subscribersList", JSON.stringify(subscribers));
+    mailInput.value = "";
 }
 
-subscribeBtn.addEventListener("click", function(){
-    subscribers.push(mailInput.value);
-    localStorage.setItem("subscribersList", JSON.stringify(subscribers))
-})
+subscribeBtn.addEventListener("click", subscribe);
+
+
 
 
 

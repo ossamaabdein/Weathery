@@ -3,12 +3,13 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/all.min.css">      
-        <title></title>
+        <title>Weathery</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     </head>
     <body>
-        
+
+        <!-- 1st section || Home -->
         <section id="home">
             <nav class="navbar navbar-expand-sm navbar-dark py-2 mb-5">
                 <div class="container">
@@ -66,6 +67,7 @@
                             </div>
                         </div>
 
+                        <!-- Tomorrow Weather Data -->
                         <div id="TomorrowWeather" class="col-md-4 px-0 text-center">
                             <div id="Tomorrow-info" class="dateInfo p-2">
                                 <span id="Tomorrow"></span>
@@ -80,6 +82,7 @@
                             </div>
                         </div>
 
+                        <!-- After Tomorrow Weather Data -->
                         <div id="afterTomorrowWeather" class="col-md-4 px-0 text-center">
                             <div id="afterTomorrow-info" class="dateInfo p-2">
                                 <span id="afterTomorrow"></span>
@@ -94,8 +97,7 @@
                             </div>
                         </div>
 
-                        <!-- Accordion -->
-                        
+                        <!-- Accordion for More Details & More Days -->
                         <div class="accordion accordion-flush px-0" id="accordionExample">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="headingOne">
@@ -148,7 +150,7 @@
                                             <!-- Fourth Day -->
                                             <div id="FourthDayWeather" class="col-md-4 px-0 pb-3 text-center">
                                                 <div id="FourthDay-info" class="dateInfo p-2">
-                                                    <span id="FourthDay">04</span>
+                                                    <span id="FourthDay"></span>
                                                 </div>
                                                 <div class="px-2" id="FourthDayWeatherInfo">
                                                     <img class="pt-4 pb-2" id="FourthDayWeatherIcon">
@@ -197,7 +199,8 @@
                 </div>
             </div>
         </section>
-
+        
+        <!-- 2nd section || Footer -->    
         <section id="footer" class="pb-1">
             <div class="container">
                 <div class="subscribe_Contacts d-flex align-items-center py-5">
