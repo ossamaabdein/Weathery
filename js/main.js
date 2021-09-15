@@ -120,9 +120,6 @@ if (d.getDay() == 5) {
 
 
 
-
-console.log(d.getDay())
-
 // Fourth day date
 d.setDate(d.getDate() + 3);
 // Using "toISOString()" set time zone back to GMT+00 not our GMT+2, so we need to offset this change to get accurate results at "1:00 AM" for example and not to be still at the previous day. 
@@ -142,10 +139,10 @@ let sixth = d.toISOString().split('T')[0];
 
 
 async function getData(cityName) {
-    let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&days=3`);
-    let fourthDayResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fourth}`);
-    let fifthDayResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fifth}`)
-    let sixthDayResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${sixth}`)
+    let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&days=3`);
+    let fourthDayResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fourth}`);
+    let fifthDayResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${fifth}`)
+    let sixthDayResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c6e6458ae2cc415aa8191919210809&q=${cityName}&dt=${sixth}`)
     weatherData = await response.json();
     fourthData = await fourthDayResponse.json();
     fifthData = await fifthDayResponse.json();
