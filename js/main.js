@@ -88,13 +88,13 @@ let FifthDayName;
 let SixthDayName;
 
 // conditions to avoid "out of range" error & days[-1]
-if (d.getDay() == days.length-2) {
-    TomorrowName = days[days.length-1]
+if (d.getDay() == 5) {
+    TomorrowName = days[6]
     afterTomorrowName = days[0];
     FourthDayName = days[1];
     FifthDayName = days[2];
     SixthDayName = days[3];
-} else if (d.getDay() == days.length-1) {
+} else if (d.getDay() == 6) {
     TomorrowName = days[0]
     afterTomorrowName = days[1];
     FourthDayName = days[2];
@@ -106,8 +106,22 @@ if (d.getDay() == days.length-2) {
     FourthDayName = days[d.getDay()+3];
     FifthDayName = days[d.getDay()+4];
     SixthDayName = days[d.getDay()+5];
+    if (d.getDay() == 2) {
+        SixthDayName = days[0];
+    } else if (d.getDay() == 3) {
+        FifthDayName = days[0];
+        SixthDayName = days[1];
+    } else if (d.getDay() == 4) {
+        FourthDayName = days[0];
+        FifthDayName = days[1];
+        SixthDayName = days[2];
+    } 
 }
 
+
+
+
+console.log(d.getDay())
 
 // Fourth day date
 d.setDate(d.getDate() + 3);
@@ -158,7 +172,7 @@ function displayData() {
     todayDate.innerHTML = weatherData.location.localtime.slice(0,10);
     currentLocation.innerHTML = weatherData.location.name;
     currentTemp.innerHTML = `${weatherData.current.temp_c}°C`;
-    CurrentIcon.src  = weatherData.current.condition.icon;
+    CurrentIcon.src  = `https://${weatherData.current.condition.icon}`;
     currentWeatherStatus.innerHTML = weatherData.current.condition.text;
     rainChance.innerHTML = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%`;
     windSpeed.innerHTML = `${weatherData.current.wind_kph}km/h`;
@@ -203,7 +217,7 @@ function displayData() {
 
 function displayTomorrowData() {
     Tomorrow.innerHTML = TomorrowName;
-    TomorrowWeatherIcon.src = weatherData.forecast.forecastday[1].day.condition.icon;
+    TomorrowWeatherIcon.src = `https://${weatherData.forecast.forecastday[1].day.condition.icon}`;
     TomorrowHigherTemp.innerHTML = `${weatherData.forecast.forecastday[1].day.maxtemp_c}°C`;
     TomorrowLowerTemp.innerHTML = `${weatherData.forecast.forecastday[1].day.mintemp_c}°`;
     TomorrowWeatherStatus.innerHTML = weatherData.forecast.forecastday[1].day.condition.text;
@@ -211,7 +225,7 @@ function displayTomorrowData() {
 
 function displayafterTomorrowData() {
     afterTomorrow.innerHTML = afterTomorrowName; 
-    afterTomorrowWeatherIcon.src = weatherData.forecast.forecastday[2].day.condition.icon;
+    afterTomorrowWeatherIcon.src = `https://${weatherData.forecast.forecastday[2].day.condition.icon}`;
     afterTomorrowHigherTemp.innerHTML = `${weatherData.forecast.forecastday[2].day.maxtemp_c}°C`;
     afterTomorrowLowerTemp.innerHTML = `${weatherData.forecast.forecastday[2].day.mintemp_c}°`;
     afterTomorrowWeatherStatus.innerHTML = weatherData.forecast.forecastday[2].day.condition.text;
@@ -220,19 +234,19 @@ function displayafterTomorrowData() {
 function displayMoreDaysData() {
     //  Fourth
     FourthDay.innerHTML = FourthDayName;
-    FourthDayWeatherIcon.src = fourthData.forecast.forecastday[0].day.condition.icon;
+    FourthDayWeatherIcon.src = `https://${fourthData.forecast.forecastday[0].day.condition.icon}`;
     FourthDayHigherTemp.innerHTML = `${fourthData.forecast.forecastday[0].day.maxtemp_c}°C`;
     FourthDayLowerTemp.innerHTML = `${fourthData.forecast.forecastday[0].day.mintemp_c}°`;
     FourthDayWeatherStatus.innerHTML = fourthData.forecast.forecastday[0].day.condition.text;
     // Fifth
     FifthDay.innerHTML = FifthDayName;
-    FifthDayWeatherIcon.src = fifthData.forecast.forecastday[0].day.condition.icon;
+    FifthDayWeatherIcon.src = `https://${fifthData.forecast.forecastday[0].day.condition.icon}`;
     FifthDayHigherTemp.innerHTML = `${fifthData.forecast.forecastday[0].day.maxtemp_c}°C`;
     FifthDayLowerTemp.innerHTML = `${fifthData.forecast.forecastday[0].day.mintemp_c}°`;
     FifthDayWeatherStatus.innerHTML = fifthData.forecast.forecastday[0].day.condition.text;
     // Sixth
     SixthDay.innerHTML = SixthDayName;
-    SixthDayWeatherIcon.src = sixthData.forecast.forecastday[0].day.condition.icon;
+    SixthDayWeatherIcon.src = `https://${sixthData.forecast.forecastday[0].day.condition.icon}`;
     SixthDayHigherTemp.innerHTML = `${sixthData.forecast.forecastday[0].day.maxtemp_c}°C`;
     SixthDayLowerTemp.innerHTML = `${sixthData.forecast.forecastday[0].day.mintemp_c}°`;
     SixthDayWeatherStatus.innerHTML = sixthData.forecast.forecastday[0].day.condition.text;
