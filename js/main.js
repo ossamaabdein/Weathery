@@ -34,6 +34,7 @@ let pressureValue = document.getElementById("pressureValue");
 let visibilityValue = document.getElementById("visibilityValue");
 let travelLink = document.getElementById("travelLink");
 let subscribeBtn = document.getElementById("subscribeBtn");
+let successWarning = document.getElementById("successWarning");
 
 
 // Extra Days Data
@@ -262,6 +263,12 @@ function subscribe() {
     }
     localStorage.setItem("subscribersList", JSON.stringify(subscribers));
     mailInput.value = "";
+    subscribeBtn.innerHTML = "Successfuly subscribed";
+    subscribeBtn.classList.add("bg-success");
+    mailInput.onkeyup = function() {
+        subscribeBtn.innerHTML = "Subscribe";
+        subscribeBtn.classList.remove("bg-success"); 
+    }
 }
 
 subscribeBtn.addEventListener("click", subscribe);

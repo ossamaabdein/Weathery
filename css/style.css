@@ -193,9 +193,11 @@ body {
     #home-content .input-group {
         width: 80% !important;
     }
+
     #currentTemp {
         font-size: 55px;
     }
+
     #currentIcon {
         width: 15%;
     }
@@ -215,6 +217,7 @@ body {
     #afterTomorrowWeather .dateInfo {
         border-radius: 0;
     }
+
     #collapseOne .d-flex {
         padding-bottom: 10px;
     }
@@ -243,20 +246,47 @@ body {
        border: none !important;
        /* border-bottom: solid 0.5px #7e7c7c !important; */
     }
+
     .navbar .btn.active {
         color: #009ad8 !important;
     }
+
+    #home-content .input-group {
+        width: 90% !important;
+    }
+
     #TodayWeatherInfo {
         text-align: center;
     }
+
     #currentTempInfo {
         text-align: center;
     }
+
     #currentTemp {
         padding-right: 0 !important;
     }
+
     #currentIcon {
         width: 20%;
         margin: auto;
+    }
+
+    .subscribe_Contacts .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mailInput {
+        width: 90%;
+    }
+
+    #subscribeBtn {
+        position: relative;
+        padding: 8px !important;
+        width: 60%;
+        margin-top: 8px;
+        margin-bottom: 15px;
     }
 }
