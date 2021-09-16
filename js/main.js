@@ -260,11 +260,19 @@ function subscribe() {
     }
     if (mailInput.value != "") {
         subscribers.push(mailInput.value);
+        mailInput.value = "";
+        subscribeBtn.innerHTML = "Successfuly subscribed";
+        subscribeBtn.classList.add("bg-success");
+        mailInput.classList.remove("alert-danger");
+        mailInput.classList.remove("mailAlert");
+        mailInput.placeholder = "Enter your email to subscribe..";
+    } else {
+        mailInput.classList.add("alert-danger");
+        mailInput.classList.add("mailAlert");
+        mailInput.placeholder = "Enter a valid email, please!";
     }
     localStorage.setItem("subscribersList", JSON.stringify(subscribers));
-    mailInput.value = "";
-    subscribeBtn.innerHTML = "Successfuly subscribed";
-    subscribeBtn.classList.add("bg-success");
+
     mailInput.onkeyup = function() {
         subscribeBtn.innerHTML = "Subscribe";
         subscribeBtn.classList.remove("bg-success"); 
