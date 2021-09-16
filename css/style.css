@@ -60,10 +60,6 @@ body {
     font-size: 75px;
 }
 
-#currentIcon {
-    width: 25%;
-}
-
 #todayWeather, #afterTomorrowWeather {
     background-color: #323544;
 }
@@ -204,9 +200,6 @@ body {
     #currentTemp {
         font-size: 55px;
     }
-    #currentIcon {
-        width: 25%;
-    }
 }
 
 /* Responsive Design for tablet size screen */
@@ -217,10 +210,6 @@ body {
 
     #currentTemp {
         font-size: 55px;
-    }
-
-    #currentIcon {
-        width: 15%;
     }
 
     #TomorrowWeather, #afterTomorrowWeather {
@@ -289,11 +278,6 @@ body {
 
     #currentTemp {
         padding-right: 0 !important;
-    }
-
-    #currentIcon {
-        width: 20%;
-        margin: auto;
     }
 
     .subscribe_Contacts .input-group {
