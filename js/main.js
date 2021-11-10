@@ -3,7 +3,7 @@
 //  Declaring variables for manipulation
 
 let searchInput = document.getElementById("searchInput");
-let findBtn = document.getElementById("findBtn");
+let relocateBtn = document.getElementById("relocateBtn");
 let today = document.getElementById("today");
 let todayDate = document.getElementById("todayDate");
 let currentLocation = document.getElementById("currentLocation");
@@ -151,8 +151,9 @@ async function getData(cityName) {
 }
 
 // Real-time search
-findBtn.addEventListener("click", function(){
-    cityName = searchInput.value;
+relocateBtn.addEventListener("click", function(){
+    cityName = "auto:ip";
+    searchInput.value = "";
     allOfThem();
 })
 

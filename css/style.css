@@ -18,6 +18,11 @@ body {
 
 .navbar a {
     font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #009ad8 !important;
 }
 
 .navbar-brand {
@@ -103,16 +108,32 @@ body {
     color: #009ad8 !important;
 }
 
-#findBtn, #subscribeBtn {
+#subscribeBtn {
     background-color: #009ad8;
     color: #fff !important;
     position: absolute;
     right: 5px;
     top: 5px;
     bottom: 5px;
-    z-index: 1000;
 }
 
+.relocate {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+#relocateBtn {
+    color: #06374b;
+    padding: 0;
+    margin: auto 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+#relocateBtn:hover {
+    color: #05719c;
+}
 
 /* Accordion Styling */
 .accordion-item, .accordion-body, .accordion-header, .accordion-collapse {
@@ -255,6 +276,10 @@ body {
 
 /* Responsive Design for smaller Tablet and mobile screen  */
 @media screen and (max-width: 576px) {
+    .navbar {
+        padding-right: 7px;
+        padding-left: 7px;
+    }
     .navbar .btn {
        border: none !important;
        /* border-bottom: solid 0.5px #7e7c7c !important; */
@@ -266,6 +291,10 @@ body {
 
     #home-content .input-group {
         width: 90% !important;
+    }
+
+    .relocate {
+        right: 5%;
     }
 
     #TodayWeatherInfo {

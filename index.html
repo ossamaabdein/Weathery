@@ -4,12 +4,13 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/all.min.css">      
+        <link rel="icon" href="./images/weather-icon.png">
         <title>Weathery</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
         <meta name="description" content="A simple weather forcasting web app with other for 6 days">
+        <meta name="keywords" content="weather, forcasting, weather-forcasting, rain, tripadvisor, travel">
     </head>
     <body>
         <!-- 1st section || Home -->
@@ -35,8 +36,10 @@
             <div id="home-content" class="pt-5">
                 <div class="container">
                     <div class="input-group mb-2 w-75 m-auto">
-                        <input type="text" id="searchInput" class="form-control rounded-pill py-3" placeholder="Find your Location.." aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn rounded-pill px-5" type="button" id="findBtn">Find</button>
+                        <input type="text" id="searchInput" class="form-control rounded-pill py-3" placeholder="Search City or Country.." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="relocate">
+                            <i class="fas fa-map-marker-alt fs-3 btn" id="relocateBtn"></i>
+                        </div>
                     </div>
                     <div class="row weatherTable text-light mt-4">
                         <!-- Today Weather Data -->
@@ -66,7 +69,6 @@
                                     <div id="AnotherWindInfo" class="d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Wind Direction">
                                         <img id="CompassIcon" src="./images/icon-compass.png">
                                         <span id="windDirection"></span>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -218,11 +220,12 @@
                             <li><a href="https://www.facebook.com/ossama.abdein" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="https://www.linkedin.com/in/ossama-abdein/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
                             <li><a href="https://www.github.com/ossamaabdein" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                            <li><a href="mailto:ossamaabdein@gmail.com"><i class="fas fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div id="credits">
-                    <p class="text-light text-center">Designed by Themezy. Developed by Ossama_Abdein. All rights reserved@2021</p>
+                    <p class="text-light text-center">Developed by Ossama_Abdein. All rights reserved@2021</p>
                 </div>
             </div>
         </section>
@@ -233,3 +236,5 @@
         <script src="https://kit.fontawesome.com/ea8f945607.js" crossorigin="anonymous"></script>  
     </body>
 </html>
+
+
